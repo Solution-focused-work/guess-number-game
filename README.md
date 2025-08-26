@@ -1,106 +1,95 @@
-# 🎯 Number Guessing Game
+# 🎯 Guessing Game (guessing_game_janki)
 
-A simple **Python-based CLI game** where the computer randomly selects a number, and the player tries to guess it within limited attempts.  
-Difficulty levels (easy, medium, hard) change the range of numbers. The game also logs results to a CSV file.
-
----
-
-## 🚀 Features
-- Choose difficulty:
-  - Easy → number between 1–20
-  - Medium → number between 1–50
-  - Hard → number between 1–100
-- Limited attempts (default: 10).
-- Validates user input.
-- Keeps track of wins/losses.
-- Logs results to `game_log.csv`.
-
-
-# Project Setup and Usage Guide
-
-This guide walks you through setting up your development environment, installing dependencies, and running tests.
+A fun and interactive number guessing game with difficulty levels and score tracking — now available as a Python package on PyPI!
 
 ---
 
-## 1. Create a virtual environment
+## 📦 Installation
 
-Run this command in your project directory to create an isolated Python environment:
+Install directly from PyPI:
 
-python3 -m venv env
+```bash
+pip install guessing_game_janki
 
-## 2. Activate the virtual environment
-Activate the environment so your shell uses the isolated Python and packages:
+---
 
-On macOS/Linux: 
-source env/bin/activate
+▶️ How to Play
 
-On Windows (Command Prompt): 
-env\Scripts\activate
+After installing, just run:
 
-## 3. Upgrade pip (recommended)
-Make sure you have the latest pip version inside the environment:
+guessing-game
 
-pip install --upgrade pip
+Then follow the prompts to:
 
-## 4. Install project dependencies
-If you already have a requirements.txt file, install all required packages:
+Choose difficulty (easy, medium, or hard)
 
+Try to guess the number in as few attempts as possible!
+
+Keep track of your score in a .csv log
+
+---
+
+🧪 Features
+
+🎮 Easy, medium, and hard difficulty levels
+
+🔁 Replayable with scoreboard tracking
+
+🧾 Game history saved to game_log.csv
+
+🧪 Includes test suite and CI setup
+
+📦 Packaged for easy installation and use
+
+---
+
+## 🛠 Development
+
+Clone the repo:
+
+git clone https://github.com/your-username/your-repo-name.git
+cd guess-number
+
+Create a virtual environment and install dependencies:
+
+python -m venv env
+source env/bin/activate  # or .\env\Scripts\activate on Windows
 pip install -r requirements.txt
 
-If you don’t have one yet, install your needed packages manually, for example:
+---
 
-pip install pytest sphinx twine
-
-and then create the requirements.txt file by running:
-
-pip freeze > requirements.txt
-
-## 5. Run tests or your project
-To run tests with pytest:
+## 🧪 Run Tests
 
 pytest
-Or run whatever commands your project uses.
-
-## 6. Deactivate the virtual environment
-When you’re done working, exit the virtual environment:
-
-deactivate
-
-## Notes
-Always activate your virtual environment before running your project or installing packages.
-
-Keep your requirements.txt updated whenever you add or upgrade packages.
-
-Use version control (like Git) to track changes in your project and dependencies.
 
 ---
 
-## 🖥️ How to Run
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/number-guessing-game.git
-   cd number-guessing-game
+ ← (Update with actual link)
+## 🚀 Publish to PyPI
+python setup.py sdist bdist_wheel
+twine upload dist/*
 
 ---
 
-## 🎮 Example Gameplay
+🔗 Links
 
-Enter your name: Alice
-Choose difficulty (easy / medium / hard): easy
-🎯 Welcome to Number Guessing Game, Alice!
-You have only 10 attempts to guess the number between 1 and 20.
+🐙 GitHub Repo: https://github.com/Solution-focused-work/guess-number-game
 
-Enter your guess 1-20: 10
-Too low!
-Attempts left: 9
+📦 PyPI Package: https://pypi.org/project/guess-it-right/0.1.0/
 
-Enter your guess 1-20: 15
-Too high!
-Attempts left: 8
+---
 
-Enter your guess 1-20: 13
-🎉 You guessed it in 3 attempts.
+📄 License
 
-✅ Logged: Alice, easy, 3, 13, Win
+MIT License
 
+---
+
+## ✅ Final Step
+
+Once you've updated your `README.md`:
+
+```bash
+git add README.md
+git commit -m "📝 Update README with PyPI install and usage instructions"
+git push
