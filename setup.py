@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="guessing_game",  # Your package name on PyPI (unique)
+    name="guess-it-right",  # Your package name on PyPI (unique)
     version="0.1.0",       # Initial version
     author="Janki Dhanani",
     author_email="jnkdhanani@gmail.com",
@@ -18,7 +18,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "guessing-game=guess.game:main",  # Command-line entry point
+            "guess-it-right=guess.game:main",  # Command-line entry point
         ],
     },
     install_requires=[

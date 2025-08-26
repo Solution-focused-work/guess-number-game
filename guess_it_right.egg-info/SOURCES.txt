@@ -1,0 +1,10 @@
+README.md
+setup.py
+guess/__init__.py
+guess/game.py
+guess_it_right.egg-info/PKG-INFO
+guess_it_right.egg-info/SOURCES.txt
+guess_it_right.egg-info/dependency_links.txt
+guess_it_right.egg-info/entry_points.txt
+guess_it_right.egg-info/top_level.txt
+tests/test_game.py

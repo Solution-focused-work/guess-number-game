@@ -27,6 +27,7 @@ requests-toolbelt==1.0.0
 rfc3986==2.0.0
 rich==14.1.0
 roman-numerals-py==3.1.0
+setuptools==80.9.0
 snowballstemmer==3.0.1
 Sphinx==8.2.3
 sphinxcontrib-applehelp==2.0.0
@@ -37,3 +38,4 @@ sphinxcontrib-qthelp==2.0.0
 sphinxcontrib-serializinghtml==2.0.0
 twine==6.1.0
 urllib3==2.5.0
+wheel==0.45.1
