@@ -45,6 +45,7 @@ jobs:
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
     # 7. Determine version bump based on last commit message
+    # 7. Determine version bump based on last commit message
     - name: Determine version bump
       id: bump
       run: |
