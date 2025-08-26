@@ -26,6 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt || echo "No requirements"
         pip install setuptools wheel twine pytest flake8 bump2version
+        pip install -e . # <-- This installs your package in editable mode
 
     # 4. Lint code
     - name: Lint code
