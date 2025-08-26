@@ -47,7 +47,6 @@ jobs:
     # 7. Determine version bump based on last commit message
     - name: Determine version bump
       id: bump
-      shell: bash
       run: |
         LAST_COMMIT=$(git log -1 --pretty=%B)
         echo "Last commit message: $LAST_COMMIT"
@@ -58,6 +57,7 @@ jobs:
           echo "type=minor" >> $GITHUB_OUTPUT
         else
           echo "type=patch" >> $GITHUB_OUTPUT
+      shell: bash
 
     # 8. Bump version
     - name: Bump version
