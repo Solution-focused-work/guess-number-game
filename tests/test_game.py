@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, mock_open
-from guess import check_guess, log_result, play_game
+from guess.game import check_guess, log_result, play_game
 
 # ✅ Simple logic test — no I/O
 def test_check_guess_correct():
