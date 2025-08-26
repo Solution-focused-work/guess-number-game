@@ -39,4 +39,57 @@ Keep track of your score in a .csv log
 
 🧪 Includes test suite and CI setup
 
-📦 Packaged for
+📦 Packaged for easy installation and use
+
+---
+
+## 🛠 Development
+
+Clone the repo:
+
+git clone https://github.com/your-username/your-repo-name.git
+cd guess-number
+
+Create a virtual environment and install dependencies:
+
+python -m venv env
+source env/bin/activate  # or .\env\Scripts\activate on Windows
+pip install -r requirements.txt
+
+---
+
+## 🧪 Run Tests
+
+pytest
+
+---
+
+ ← (Update with actual link)
+## 🚀 Publish to PyPI
+python setup.py sdist bdist_wheel
+twine upload dist/*
+
+---
+
+🔗 Links
+
+🐙 GitHub Repo: https://github.com/Solution-focused-work/guess-number-game
+
+📦 PyPI Package: https://pypi.org/project/guess-it-right/0.1.0/
+
+---
+
+📄 License
+
+MIT License
+
+---
+
+## ✅ Final Step
+
+Once you've updated your `README.md`:
+
+```bash
+git add README.md
+git commit -m "📝 Update README with PyPI install and usage instructions"
+git push
