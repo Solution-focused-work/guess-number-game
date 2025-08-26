@@ -15,6 +15,64 @@ Difficulty levels (easy, medium, hard) change the range of numbers. The game als
 - Keeps track of wins/losses.
 - Logs results to `game_log.csv`.
 
+
+# Project Setup and Usage Guide
+
+This guide walks you through setting up your development environment, installing dependencies, and running tests.
+
+---
+
+## 1. Create a virtual environment
+
+Run this command in your project directory to create an isolated Python environment:
+
+python3 -m venv env
+
+## 2. Activate the virtual environment
+Activate the environment so your shell uses the isolated Python and packages:
+
+On macOS/Linux: 
+source env/bin/activate
+
+On Windows (Command Prompt): 
+env\Scripts\activate
+
+## 3. Upgrade pip (recommended)
+Make sure you have the latest pip version inside the environment:
+
+pip install --upgrade pip
+
+## 4. Install project dependencies
+If you already have a requirements.txt file, install all required packages:
+
+pip install -r requirements.txt
+
+If you don’t have one yet, install your needed packages manually, for example:
+
+pip install pytest sphinx twine
+
+and then create the requirements.txt file by running:
+
+pip freeze > requirements.txt
+
+## 5. Run tests or your project
+To run tests with pytest:
+
+pytest
+Or run whatever commands your project uses.
+
+## 6. Deactivate the virtual environment
+When you’re done working, exit the virtual environment:
+
+deactivate
+
+## Notes
+Always activate your virtual environment before running your project or installing packages.
+
+Keep your requirements.txt updated whenever you add or upgrade packages.
+
+Use version control (like Git) to track changes in your project and dependencies.
+
 ---
 
 ## 🖥️ How to Run
