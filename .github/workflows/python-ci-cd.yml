@@ -39,7 +39,13 @@ jobs:
     - name: Run tests
       run: pytest
 
-    # 6. Determine version bump based on commit message
+    # 6a. Configure git for GitHub Actions
+    - name: Configure git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    # 6b. Determine version bump based on commit message
     - name: Determine version bump
       id: bump
       run: |
