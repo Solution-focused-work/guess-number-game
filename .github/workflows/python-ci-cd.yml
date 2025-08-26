@@ -57,6 +57,7 @@ jobs:
           echo "type=minor" >> $GITHUB_OUTPUT
         else
           echo "type=patch" >> $GITHUB_OUTPUT
+        fi   # <-- Add this line to close the block
       shell: bash
 
     # 8. Bump version
