@@ -16,6 +16,7 @@ def choose_difficulty() -> tuple[int, int]:
         else:
             print("❌ Invalid choice! Please type easy, medium, or hard.")
 
+
 def get_user_guess(low: int, high: int) -> int:
     """Prompt user for a number within the range [low, high]."""
     while True:
@@ -24,9 +25,12 @@ def get_user_guess(low: int, high: int) -> int:
             if low <= guess <= high:
                 return guess
             else:
-                print(f"❌ Invalid input! Please enter a number between {low} and {high}.")
+                print(
+                    f"❌ Invalid input! Please enter a number between {low} and {high}."
+                )
         except ValueError:
             print("❌ Invalid input! Please enter a valid number.")
+
 
 def check_guess(guess: int, target: int) -> str:
     """Check guess against target and return hint."""
@@ -36,6 +40,7 @@ def check_guess(guess: int, target: int) -> str:
         return "Too high!"
     else:
         return "Correct!"
+
 
 def log_result(player: str, difficulty: str, attempts: int, target: int, result: str):
     """Save game result to a CSV file."""
@@ -49,15 +54,18 @@ def log_result(player: str, difficulty: str, attempts: int, target: int, result:
         writer.writerow([player, difficulty, attempts, target, result])
 
     print(f"✅ Logged: {player}, {difficulty}, {attempts}, {target}, {result}")
-    
-def play_game(player: str, max_attempts = 10):
+
+
+def play_game(player: str, max_attempts=10):
     """Main game loop."""
     low, high = choose_difficulty()
     target = random.randint(low, high)
     attempts = 0
 
     print(f"🎯 Welcome to Number Guessing Game, {player}!")
-    print(f"You have only {max_attempts} attempts to guess the number between {low} and {high}.")
+    print(
+        f"You have only {max_attempts} attempts to guess the number between {low} and {high}."
+    )
 
     while attempts < max_attempts:
         guess = get_user_guess(low, high)
@@ -77,10 +85,9 @@ def play_game(player: str, max_attempts = 10):
     return False  # Return False to indicate a loss
 
 
-
 def main():
     """Main entry point to handle replay."""
-    
+
     player_name = input("Enter your name: ").strip() or "Anonymous"
 
     wins = 0
@@ -101,8 +108,6 @@ def main():
             print("👋 Thanks for playing! Goodbye.")
             break
 
+
 if __name__ == "__main__":
     main()
-
-
-
