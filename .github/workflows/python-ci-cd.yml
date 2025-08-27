@@ -2,7 +2,9 @@ name: CI - Lint, Test, and Bump Version
 
 on:
   push:
-    branches: [ main, api-version ]
+    branches: 
+      - main
+      - api-version
   pull_request:
 
 jobs:
