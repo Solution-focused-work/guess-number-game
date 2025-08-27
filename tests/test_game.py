@@ -1,7 +1,9 @@
 import pytest
+from fastapi.testclient import TestClient
+from guess.api import app, check_guess, log_result
 from unittest.mock import patch, mock_open
-from guess.game import check_guess, log_result, play_game
 
+client = TestClient(app)
 
 # ✅ Simple logic test — no I/O
 def test_check_guess_correct():
@@ -10,7 +12,7 @@ def test_check_guess_correct():
 
 def test_check_guess_low():
     assert check_guess(3, 5) == "Too low!"
-
+    
 
 def test_check_guess_high():
     assert check_guess(7, 5) == "Too high!"
@@ -25,9 +27,20 @@ def test_log_result(mock_exists, mock_file):
     handle.write.assert_called()  # Check that write was called
 
 
-# ✅ Test the game logic with controlled input/output
-@patch("random.randint", return_value=7)
-@patch("builtins.input", side_effect=["easy", "7"])  # difficulty, then guess
-def test_play_game_win(mock_input, mock_randint):
-    result = play_game("Tester", max_attempts=5)
-    assert result is True
+# API endpoint tests
+def test_api_guess_correct():
+    response = client.get("/guess?number=5&target=5")
+    assert response.status_code == 200
+    assert response.json() == {"result": "Correct!"}
+
+
+def test_api_guess_low():
+    response = client.get("/guess?number=3&target=5")
+    assert response.status_code == 200
+    assert response.json() == {"result": "Too low!"}
+
+
+def test_api_guess_high():
+    response = client.get("/guess?number=7&target=5")
+    assert response.status_code == 200
+    assert response.json() == {"result": "Too high!"}

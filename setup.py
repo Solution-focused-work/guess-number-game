@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="guess-it-right",  # Your package name on PyPI (unique)
-    version="0.1.0",       # Initial version
+    version="0.1.1",       # Initial version
     author="Janki Dhanani",
     author_email="jnkdhanani@gmail.com",
     description="A simple number guessing game with difficulty levels",

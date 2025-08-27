@@ -1,18 +1,20 @@
-name: Python Package CI/CD
+name: CI - Lint, Test, and Bump Version
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main, api-version ]
+  pull_request:
 
 jobs:
-  build-and-publish:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     # 1. Checkout code
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0   # Needed so bump2version can create tags
 
     # 2. Setup Python
     - name: Set up Python
@@ -38,7 +40,7 @@ jobs:
     - name: Run tests
       run: pytest
 
-    # 6. Configure git for commits
+    # 6. Configure git
     - name: Configure git
       run: |
         git config --global user.name "github-actions[bot]"
@@ -57,7 +59,7 @@ jobs:
           echo "type=minor" >> $GITHUB_OUTPUT
         else
           echo "type=patch" >> $GITHUB_OUTPUT
-        fi   # <-- Add this line to close the block
+        fi
       shell: bash
 
     # 8. Bump version
@@ -65,10 +67,7 @@ jobs:
       run: |
         bump2version ${{ steps.bump.outputs.type }} --allow-dirty
 
-    # 9. List dist folder (debug)
-    - name: List dist folder
-      run: ls -la dist/
-
-    # 10. Publish to PyPI
-    - name: Publish to PyPI
-      run: python -m twine upload dist/* --username ${{ secrets.PYPI_USERNAME }} --password ${{ secrets.PYPI_PASSWORD }} --verbose
+    # 9. Push version bump and tags back to repo
+    - name: Push version bump back to repository
+      run: |
+        git push origin HEAD:main --tags
