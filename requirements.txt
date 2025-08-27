@@ -6,6 +6,7 @@ flake8==6.1.0  # or latest stable version
 flask>=3.0
 fastapi>=0.116
 uvicorn
+httpx
 
 
 # Optional dev tools
