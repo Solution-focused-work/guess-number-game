@@ -115,19 +115,4 @@ def guess():
             f"{game_state['low']}-{game_state['high']}", 
             game_state["attempts"], 
             game_state["target"], 
-            "Loss"
-        )
-        return jsonify({
-            "result": "Game over! The correct number was " + str(game_state["target"]),
-            "attempts": game_state["attempts"]
-        })
-
-    return jsonify({
-        "result": result,
-        "attempts": game_state["attempts"],
-        "attempts_left": game_state["max_attempts"] - game_state["attempts"]
-    })
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+            "Loss

@@ -1,9 +1,12 @@
 import pytest
-from fastapi.testclient import TestClient
-from guess.api import app, check_guess, log_result
+from guess.api import app, check_guess, log_result, play_game
 from unittest.mock import patch, mock_open
 
-client = TestClient(app)
+
+# Fixture for Flask test client
+@pytest.fixture
+def client():
+    return app.test_client()
 
 # ✅ Simple logic test — no I/O
 def test_check_guess_correct():
@@ -44,3 +47,11 @@ def test_api_guess_high():
     response = client.get("/guess?number=7&target=5")
     assert response.status_code == 200
     assert response.json() == {"result": "Too high!"}
+
+
+# CLI play_game logic test
+@patch("random.randint", return_value=7)
+@patch("builtins.input", side_effect=["easy", "7"])
+def test_play_game_win(mock_input, mock_randint):
+    result = play_game("Tester", max_attempts=5)
+    assert result is True
